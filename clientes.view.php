@@ -1,5 +1,5 @@
 <?php 
-	require 'productos.php';
+	require 'clientes.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,27 +100,32 @@
 					  <thead class="thead color3">
 					    <tr>
 					      <th scope="col">#</th>
-					      <th scope="col">Codigo</th>
-					      <th scope="col">Producto</th>
-					      <th scope="col">Cantidad</th>
-					      <th scope="col">Precio</th>
-					      <th scope="col">Marca</th>
+					      <th scope="col">Nombre</th>
+					      <th scope="col">Apellido</th>
+					      <th scope="col">Correo</th>
+					      <th scope="col">Usuario</th>
+					      <th scope="col">RFC</th>
+					      <th scope="col">Empresa</th>
 					    </tr>
 					  </thead>
 					  <tbody>
 					<?php 
-						$result = $conexion->query("SELECT * from Productos");
+						$result = $conexion->query("SELECT * from Usuarios");
+
 						foreach ($result as $fila){
+							if($fila['permisos'] != 1){
 					?>
 					    <tr>
 					      <td><?php echo $fila['ID']; ?></td>
-					      <td><?php echo $fila['codigo']; ?></td>
-					      <td><?php echo $fila['nombreP']; ?></td>
-					      <td><?php echo $fila['cantidad']; ?></td>
-					      <td><?php echo $fila['precio']; ?></td>
-					      <td><?php echo $fila['marca']; ?></td>
+					      <td><?php echo $fila['nombre']; ?></td>
+					      <td><?php echo $fila['apellido']; ?></td>
+					      <td><?php echo $fila['correoElect']; ?></td>
+					      <td><?php echo $fila['usuarios']; ?></td>
+					      <td><?php echo $fila['rfc']; ?></td>
+					      <td><?php echo $fila['empresa']; ?></td>
 					    </tr>
 					<?php 
+							}
 						}
 					 ?>
 				  </tbody>

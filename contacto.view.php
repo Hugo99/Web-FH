@@ -26,7 +26,7 @@
 
 		<section>
 			<div class="color1 col-md-3">
-					<center><a href="">Inicio</a></center>
+					<center><a href="Index.php">Inicio</a></center>
 				</div>
 
 				<div class="color1 col-md-3">
@@ -34,13 +34,12 @@
 				</div>
 				
 				<div class="color1 col-md-3">
-					<center><a href="">Contactar</a></center>
+					<center><a href="contacto.view.php">Contactar</a></center>
 				</div>
 				
 				<div class="color1 col-md-3">
-					<center><a href="">Inicio seción</a></center>
+					<center><a href="Iniciasecion.view.php">Inicio seción</a></center>
 			</div>
-
 		</section>
 	</header>
 </head>	

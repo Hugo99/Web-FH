@@ -63,7 +63,7 @@
 	                <div class="panel panel-default">
 	                    <div class="panel-heading">
 	                        <h4 class="panel-title">
-	                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-inbox">
+	                            <a data-toggle="collapse" data-parent="#accordion" href="verMensaje.view.php"><span class="glyphicon glyphicon-inbox">
 	                            </span> Mensajes</a>
 	                        </h4>
 	                    </div>
@@ -71,7 +71,7 @@
 	                <div class="panel panel-default">
 	                    <div class="panel-heading">
 	                        <h4 class="panel-title">
-	                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-user">
+	                            <a data-toggle="collapse" data-parent="#accordion" href="clientes.view.php"><span class="glyphicon glyphicon-user">
 	                            </span> Clientes</a>
 	                        </h4>
 	                    </div>
@@ -87,7 +87,7 @@
 	                <div class="panel panel-default">
 	                    <div class="panel-heading">
 	                        <h4 class="panel-title">
-	                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-remove">
+	                            <a data-toggle="collapse" data-parent="#accordion" href="cerrarSecion.php "><span class="glyphicon glyphicon-remove">
 	                            </span> Salir</a>
 	                        </h4>
 	                    </div>
@@ -96,9 +96,7 @@
 	        </div>
 	        <div class="col-sm-9 col-md-9">
 	            <div class="well">
-	                <h1>
-	                    Bienvenido
-	                </h1>
+	                <h1>Bienvenido, <?php echo $_SESSION['usuarios']; ?> </h1>
 	                Secion de administrador
 	            </div>
 	        </div>

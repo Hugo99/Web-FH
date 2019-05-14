@@ -6,7 +6,7 @@ $servidor = "localhost";
 $basededatos = "WebFH";
 
 try {
-		$conn = new PDO("mysql:host=$servidor; dbname=$basededatos;",$usuario, $contrasena); /* almacena conexión con la base de datos */
+		$conexion = new PDO("mysql:host=$servidor; dbname=$basededatos;",$usuario, $contrasena); /* almacena conexión con la base de datos */
 	} catch (PDOException $e) {
 		die('Error: '.$e->getMessage());
 	}
@@ -14,6 +14,10 @@ try {
 
 $errores = '' ; 
 $enviado = '' ; 
+
+$nombre = '';
+$correo = '';
+$mensaje = '';
 
 
 if(isset($_POST['submit'])){
@@ -48,15 +52,30 @@ if(isset($_POST['submit'])){
 		$errores .= 'Por favor ingresa un mensaje';
 	}
 
-	if(!$errores){
-		$enviado_a= 'eguinohugo@gmail.com' ;
+	if(!empty($nombre) && !empty($correo) && !empty($mensaje)){
+
+
+		/*$enviado_a= 'eguinohugo@gmail.com' ;
 		$asunto = 'Correo pagina';
 		$mensaje_c = 'De: '. $nombre ."\n";
 		$mensaje_c .= 'Correo:' . $correo . "\n";
 		$mensaje_c .= "Mensaje: " . $mensaje;
 
 		mail($enviado_a, $asunto, $mensaje);
-		$enviado = true;
+		$enviado = true;*/
+
+		//print_r($sql);
+
+		$sql = "INSERT INTO Mensaje(ID, nombre, correoElect, Mensaje) VALUES(null, '$nombre', '$correo', '$mensaje')";
+
+		$registra = $conexion->prepare($sql);
+
+		if($registra->execute()){
+			$enviado = true;
+		}else{
+			$errores .='No se pudo registar, intente mas tarde';
+		}
+
 	}
 }
 

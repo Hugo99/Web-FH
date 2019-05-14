@@ -22,8 +22,8 @@ if(isset($_POST['agregar'])){
 	$marca = strtolower($_POST['marcap']);
 
 	if(!empty($codigo)){
-		$usuario = trim($usuario);
-		$usuario = filter_var($usuario,FILTER_SANITIZE_STRING);
+		$codigo = trim($codigo);
+		$codigo = filter_var($codigo,FILTER_SANITIZE_STRING);
 
 		$statement = $conexion->prepare('SELECT * FROM Productos WHERE codigop = :codigo LIMIT 1');
 		$statement->execute(array(':codigo'=>$codigo));

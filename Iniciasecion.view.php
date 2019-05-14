@@ -1,5 +1,7 @@
 <?php 
 	require 'Iniciasecion.php';
+
+	session_start();
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +30,7 @@
 
 		<section>
 			<div class="color1 col-md-3">
-					<center><a href="localhost:8888/W-FR_CHAS/Index.php">Inicio</a></center>
+					<center><a href="Index.php">Inicio</a></center>
 				</div>
 
 				<div class="color1 col-md-3">
@@ -36,13 +38,12 @@
 				</div>
 				
 				<div class="color1 col-md-3">
-					<center><a href="localhost:8888/W-FR_CHAS/Contacto/contacto.view.php">Contactar</a></center>
+					<center><a href="contacto.view.php">Contactar</a></center>
 				</div>
 				
 				<div class="color1 col-md-3">
-					<center><a href="localhost:8888/W-FR_CHAS/InicioSecion/inicioSesion.view.php">Inicio seción</a></center>
+					<center><a href="Iniciasecion.view.php">Inicio seción</a></center>
 			</div>
-
 		</section>
 	</header>
 	

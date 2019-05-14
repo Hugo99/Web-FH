@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+session_start();
 $usuarioDB = "hugo";
 $contrasenaDB = "";
 $servidor = "localhost";
@@ -119,7 +120,7 @@ if(isset($_POST['registrado'])){
 		
 		$sql = "INSERT INTO Usuarios(ID, nombre,apellido,correoElect,usuario,rfc,empresa,contrasena,permisos) VALUES(null,'$nombre', '$apellido', '$correo', '$usuario', '$rfc', '$empresa', '$contrasena', 0)";
 
-		print_r($sql);
+		//print_r($sql);
 
 		$registra = $conexion->prepare($sql);
 
