@@ -36,7 +36,7 @@
 	                <div class="panel panel-default">
 	                    <div class="panel-heading">
 	                        <h4 class="panel-title">
-	                            <a data-toggle="collapse" data-parent="#accordion" href=""><span class="glyphicon glyphicon-folder-open">
+	                            <a data-toggle="collapse" data-parent="#accordion" href="pedidosC.view.php"><span class="glyphicon glyphicon-folder-open">
 	                            </span> Pedidos</a>
 	                        </h4>
 	                    </div>

@@ -1,8 +1,7 @@
 <?php 
-	require 'modificarProductos.php';
+	require 'clientes.php';
 	session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,18 +35,18 @@
 	                <div class="panel panel-default">
 	                    <div class="panel-heading">
 	                        <h4 class="panel-title">
-	                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-tags">
-	                            </span> Productos</a>
+	                            <span class="glyphicon glyphicon-tags">
+	                            </span> Productos
 	                        </h4>
 	                    </div>
 	                    <div id="collapseOne" class="panel-collapse collapse in">
 	                        <div class="panel-body">
 	                            <table class="table">
-	                                <tr>
+	                                <!--<tr>
 	                                    <td>
 	                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="modificarProductos.view.php">Editar</a>
 	                                    </td>
-	                                </tr>
+	                                </tr>-->
 	                                <tr>
 	                                    <td>
 	                                        <span class="glyphicon glyphicon-plus text-primary"></span><a href="agregaProductos.view.php">Agregar</a>
@@ -81,7 +80,7 @@
 	                <div class="panel panel-default">
 	                    <div class="panel-heading">
 	                        <h4 class="panel-title">
-	                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-file">
+	                            <a data-toggle="collapse" data-parent="#accordion" href="pedidos.view.php"><span class="glyphicon glyphicon-file">
 	                            </span> Pedidos</a>
 	                        </h4>
 	                    </div>
@@ -97,52 +96,53 @@
 	            </div>
 	        </div>
 	        <div class="col-sm-9 col-md-9">
+	            
 	            <div class="well">
-	            	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> "method="post">
-		            	<input type= "Text" class="form-control" placeholder="Codigo" name="codigo" id ="codigo">
-						
-						<?php if (!empty($error)){ ?>
-							<div class="alert error"> 
-								<?php echo $error; ?>
-							</div>
-						<?php  }?>
+	            	<table class="table">
+					  <thead class="thead color3">
+					    <tr>
+					      <th scope="col">#</th>
+					      <th scope="col">Cliente</th>
+					      <th scope="col">Fecha</th>
+					      <th scope="col">Numero de articulos</th>
+					      <th scope="col">Articulos</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					<?php 
+						$result = $conexion->query("SELECT * from Pedido");
 
-						<input type="submit" name="buscar" id="buscar" class="btn color3" value="Buscar" >
-						
-		            	<table class="table">
-						  <thead class="thead color3">
-						    <tr>
-						      <th scope="col">#</th>
-						      <th scope="col">Codigo</th>
-						      <th scope="col">Producto</th>
-						      <th scope="col">Cantidad</th>
-						      <th scope="col">Precio</th>
-						      <th scope="col">Marca</th>
-						    </tr>
-						  </thead>
-						  <tbody>
+						foreach ($result as $fila){
+							if($fila['permisos'] != 1){
+								$PedidoNum = $fila['ID'];							
+					?>
+					    <tr class="">
+					      <td><?php echo $fila['ID']; ?></td>
+					      <td><?php echo $fila['Cliente']; ?></td>
+					      <td><?php echo $fila['Fecha']; ?></td>
+					      <td><?php echo $fila['numArt']; ?></td>
+					
 							<?php 
-								if ($enviado == true) {
-									$result = $conexion->query("SELECT * from Productos WHERE codigo = $codigo ");
-									foreach ($result as $fila){
+								$result = $conexion->query("SELECT * from artPedidos where numPedido = $PedidoNum ");
+								$numArtI = 1 ;
+								foreach ($result as $fila){
 							?>
-							    <tr>
-							      <td><?php echo $fila['ID']; ?></td>
-							      <td><?php echo $fila['codigo']; ?></td>
-							      <td><?php echo $fila['nombreP']; ?></td>
-							      <td><?php echo $row['cantidad']; ?></td>
-							      <td><?php echo $fila['precio']; ?></td>
-							      <td><?php echo $fila['marca']; ?></td>
-							    </tr>
+									<?php if($fila['numArt'] != $numArtI){?>
+										<td><?php echo $fila['Codigo']. "\n" ; ?></pre></td> 	
+									<?php $numArtI++; }?>
 							<?php 
-									}
-								}	
-							 ?>
-						  </tbody>
-	                	</table>
-	                	<input type="submit" name="cambiar" id="cambia" class="btn color3" value="Guardar cambios">
-	                </form>
+								}
+							?>
+					    </tr>
+					<?php 
+							}
+						}
+					 ?>
+
+				  </tbody>
+	                </table>
 	            </div>
+
 	        </div>
 	    </div>
 	</div>

@@ -5,4 +5,5 @@ if ($_SESSION) {
 }else header('Location: Iniciasecion.view.php');
 
 
+
  ?>

@@ -1,6 +1,6 @@
 <?php 
 	require 'agregaProductos.php';
-	
+	session_start();
 ?>
 
 <!DOCTYPE html>
@@ -38,18 +38,18 @@
 	                <div class="panel panel-default">
 	                    <div class="panel-heading">
 	                        <h4 class="panel-title">
-	                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-tags">
-	                            </span> Productos</a>
+	                            <span class="glyphicon glyphicon-tags">
+	                            </span> Productos
 	                        </h4>
 	                    </div>
 	                    <div id="collapseOne" class="panel-collapse collapse in">
 	                        <div class="panel-body">
 	                            <table class="table">
-	                                <tr>
+	                                <!--<tr>
 	                                    <td>
 	                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="modificarProductos.view.php">Editar</a>
 	                                    </td>
-	                                </tr>
+	                                </tr>-->
 	                                <tr>
 	                                    <td>
 	                                        <span class="glyphicon glyphicon-plus text-primary"></span><a href="agregaProductos.view.php">Agregar</a>

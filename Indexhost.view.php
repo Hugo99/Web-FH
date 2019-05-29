@@ -1,5 +1,6 @@
 <?php 
 	require 'Indexhost.php';
+	session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +19,7 @@
 					Ferreteria El Remache
 					<br>
 					Comercializadora HAS
-					</br>
+					</br><a href="Index.php"></a>
 				</h1>
 			</center>
 		</div>
@@ -34,18 +35,18 @@
 	                <div class="panel panel-default">
 	                    <div class="panel-heading">
 	                        <h4 class="panel-title">
-	                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-tags">
-	                            </span> Productos</a>
+	                            <span class="glyphicon glyphicon-tags">
+	                            </span> Productos
 	                        </h4>
 	                    </div>
 	                    <div id="collapseOne" class="panel-collapse collapse in">
 	                        <div class="panel-body">
 	                            <table class="table">
-	                                <tr>
+	                                <!--<tr>
 	                                    <td>
 	                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="modificarProductos.view.php">Editar</a>
 	                                    </td>
-	                                </tr>
+	                                </tr>-->
 	                                <tr>
 	                                    <td>
 	                                        <span class="glyphicon glyphicon-plus text-primary"></span><a href="agregaProductos.view.php">Agregar</a>
@@ -79,7 +80,7 @@
 	                <div class="panel panel-default">
 	                    <div class="panel-heading">
 	                        <h4 class="panel-title">
-	                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-file">
+	                            <a data-toggle="collapse" data-parent="#accordion" href="pedidos.view.php"><span class="glyphicon glyphicon-file">
 	                            </span> Pedidos</a>
 	                        </h4>
 	                    </div>
@@ -97,7 +98,7 @@
 	        <div class="col-sm-9 col-md-9">
 	            <div class="well">
 	                <h1>Bienvenido, <?php echo $_SESSION['usuarios']; ?> </h1>
-	                Secion de administrador
+	                Sesión de administrador
 	            </div>
 	        </div>
 	    </div>

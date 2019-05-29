@@ -25,7 +25,7 @@ if(isset($_POST['agregar'])){
 		$codigo = trim($codigo);
 		$codigo = filter_var($codigo,FILTER_SANITIZE_STRING);
 
-		$statement = $conexion->prepare('SELECT * FROM Productos WHERE codigop = :codigo LIMIT 1');
+		$statement = $conexion->prepare('SELECT * FROM Productos WHERE codigo = :codigo LIMIT 1');
 		$statement->execute(array(':codigo'=>$codigo));
 		$resultado = $statement->fetch(); 
 

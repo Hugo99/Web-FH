@@ -1,5 +1,6 @@
 <?php 
 	require 'Iniciasecion.php';
+	session_start();
 ?>
 
 <!DOCTYPE html>
@@ -11,9 +12,7 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="estilos2.css">
 	<link rel="stylesheet" href="estilos3.css">
-</head>	
 
-<body>
 	<header>
 		<div class="container">
 			<center>
@@ -28,11 +27,11 @@
 
 		<section>
 			<div class="color1 col-md-3">
-					<center><a href="localhost:8888/W-FR_CHAS/Index.php">Inicio</a></center>
+					<center><a href="Index.php">Inicio</a></center>
 				</div>
 
 				<div class="color1 col-md-3">
-					<center><a href="">Catalago</a></center>
+					<center><a href="catalago.php">Catalago</a></center>
 				</div>
 				
 				<div class="color1 col-md-3">
@@ -40,10 +39,73 @@
 				</div>
 				
 				<div class="color1 col-md-3">
-					<center><a href="Iniciasecion.view.php">Inicio seción</a></center>
+					<center><a href="Iniciasecion.view.php">Inicio sesión</a></center>
 			</div>
 		</section>
 	</header>
+
+</head>	
+
+<body>
+	<div class="contenedor">
+		<br>
+		<div class="col-md-12">
+			<div id="carousel-1" class="carousel slide" data-ride="carousel">
+				<!-- Indicadores -->
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-1" data-slide-to="0"	class="active" ></li>
+					<li data-target="#carousel-1" data-slide-to="1"	></li>
+					<li data-target="#carousel-1" data-slide-to="2"	></li>
+				</ol>
+				<!-- contenedor de los slide -->
+				
+				<div class="carousel-inner" role="listbox">
+
+					<!-- #1 -->
+					<div class="item  active">
+						<a href="Catalagos/promociones.pdf" target="_blank">
+							<img src="MAYO2019P.jpg" class="img-responsive" alt="">
+						</a>
+						<div class="carousel-caption">
+							<h3></h3>
+							<p></p>
+						</div>
+					</div>
+
+					<!-- #2 -->
+					<div class="item ">
+						<a href="https://www.truper.com/catvigente/" target="_blank">
+							<img src="C2019.png" class="img-responsive" alt="">
+						</a>
+						<div class="carousel-caption">
+							 <h3></h3>
+							<p></p> 
+						</div>
+					</div>
+
+					<!-- #3 -->
+					<div class="item">
+						<img src="Sucursales.jpg" class="img-responsive" alt="">
+						<div class="carousel-caption">
+			   				<h3></h3>
+							<p></p>
+						</div>
+					</div>
+				</div>
+				<!-- Controles -->
+				<a href="#carousel-1" class="left carousel-control" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Anterior</span>
+				</a>
+				<a href="#carousel-1" class="right carousel-control" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Siguiente</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 
 </body>
 </html>

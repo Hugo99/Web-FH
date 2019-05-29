@@ -1,5 +1,6 @@
 <?php 
 	require 'clientes.php';
+	session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,11 +42,11 @@
 	                    <div id="collapseOne" class="panel-collapse collapse in">
 	                        <div class="panel-body">
 	                            <table class="table">
-	                                <tr>
+	                                <!--<tr>
 	                                    <td>
 	                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="modificarProductos.view.php">Editar</a>
 	                                    </td>
-	                                </tr>
+	                                </tr>-->
 	                                <tr>
 	                                    <td>
 	                                        <span class="glyphicon glyphicon-plus text-primary"></span><a href="agregaProductos.view.php">Agregar</a>

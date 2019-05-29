@@ -1,9 +1,8 @@
 <?php 
-	require 'nuevoPedido.php';
+	require 'pedidosC.php';
 	session_start();
-	$sql = "INSERT INTO Pedido(ID,Cliente,Fecha,numArt) VALUES(null,'$Cl',null,0)";
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,57 +59,49 @@
 	                </div>
 	            </div>
 	        </div>
-
 	        <div class="col-sm-9 col-md-9">
-	            <div class="well">
-	            	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> "method="post">
-		                <input type="text" id="codigo" class="form-control" name="codigo" placeholder="Codigo" value="<?php if(isset($errores)) echo($codigo) ?>">
-
-		                <input type="text" id="cantidad" class="form-control" name="cantidad" placeholder="Cantidad" value="">
-
-		                <?php if (!empty($errores)){ ?>
-							<div class="alert error"> 
-								<?php echo $errores; ?>
-							</div>
-						<?php }?>
-						
-		                <input type="submit" id="envioC" name="submit" class="btn color1" value="Agregar">
-		            </form>
-	            </div>
-
+	            
 	            <div class="well">
 	            	<table class="table">
 					  <thead class="thead color3">
 					    <tr>
-					      <th scope="col">Codigo</th>
-					      <th scope="col">Cantidad</th>
+					      <th scope="col">#</th>
+					      <th scope="col">Fecha</th>
+					      <th scope="col">Numero de articulos</th>
+					      <th scope="col">Articulos</th>
 					    </tr>
 					  </thead>
 					  <tbody>
-
-				 	<?php 
-						$result = $conexion->query("SELECT * from artPedidos");
+					<?php 
+						$result = $conexion->query("SELECT * from Pedido");
 
 						foreach ($result as $fila){
-						$PedidoNum = $fila['ID'];							
+							if($fila['permisos'] != 1){
+								$PedidoNum = $fila['ID'];							
 					?>
-
-					<?php  if ($fila['Cliente'] == $_SESSION['usuarios'] and $fila['numArt'] != 0) {?>
-					    <tr class="">
-
-							<?php if($fila['numArt'] != $numArtI){?>
-								<td><?php echo $fila['Codigo']?></td> 	
-								<td><?php echo $fila['Cantidad']?></td>
-							<?php 
-								}
-							?>
-
-					    </tr>
+						<?php  if ($fila['Cliente'] == $_SESSION['usuarios'] and $fila['numArt'] != 0) {?>
+						    <tr class="">
+						      <td><?php echo $fila['ID']; ?></td>
+						      <td><?php echo $fila['Fecha']; ?></td>
+						      <td><?php echo $fila['numArt']; ?></td>
+						
+								<?php 
+									$result = $conexion->query("SELECT * from artPedidos where numPedido = $PedidoNum ");
+									$numArtI = 1 ;
+									foreach ($result as $fila){
+								?>
+											<?php if($fila['numArt'] != $numArtI){?>
+												<td><?php echo $fila['Codigo']. "\n" ; ?></pre></td> 	
+											<?php $numArtI++; }?>
+								<?php 
+									}
+								?>
+						    </tr>
 					<?php 
+								}
 							}
 						}
 					 ?>
-
 
 				  </tbody>
 	                </table>

@@ -34,7 +34,7 @@
 				</div>
 
 				<div class="color1 col-md-3">
-					<center><a href="">Catalago</a></center>
+					<center><a href="catalago.php">Catalago</a></center>
 				</div>
 				
 				<div class="color1 col-md-3">
@@ -42,7 +42,7 @@
 				</div>
 				
 				<div class="color1 col-md-3">
-					<center><a href="Iniciasecion.view.php">Inicio seción</a></center>
+					<center><a href="Iniciasecion.view.php">Inicio sesión</a></center>
 			</div>
 		</section>
 	</header>
